@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place an Order — Aloha Corner Market | Catering & Bulk Orders</title>
+<meta name="description" content="Place a catering, bulk, or special order with Aloha Corner Market in Kaunakakai, Molokai.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="20" fill="#1E8449"/><path d="M21 10 L28 18 L24 18 L24 30 L18 30 L18 18 L14 18 Z" fill="#F39C12"/><path d="M12 20 Q21 14 30 20" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="21" cy="32" r="3" fill="white" opacity="0.7"/></svg>
+      <span>Aloha Corner<br>Market</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a><a href="services.html">Products</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="booking.html" class="active">Orders</a><a href="faq.html">FAQ</a><a href="reviews.html">Reviews</a><a href="admin.html">Admin</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-dark-toggle" id="darkToggle" aria-label="Toggle dark mode"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="services.html">Products</a><a href="about.html">About</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="booking.html">Orders</a><a href="faq.html">FAQ</a><a href="reviews.html">Reviews</a><a href="admin.html">Admin</a>
+</nav>
+
+<div class="page-hero">
+  <h1>Place an Order</h1>
+  <p>Catering, bulk orders, and special requests — filled with aloha.</p>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="booking-steps">
+      <div class="step-indicator"><div class="step-dot active" id="dot1">1</div></div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-indicator"><div class="step-dot" id="dot2">2</div></div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-indicator"><div class="step-dot" id="dot3">3</div></div>
+      <div class="step-line" id="line3"></div>
+      <div class="step-indicator"><div class="step-dot" id="dot4">4</div></div>
+    </div>
+
+    <div class="booking-form-wrap">
+      <!-- Step 1 -->
+      <div class="form-step active" id="step1">
+        <h3>What type of order?</h3>
+        <div class="service-options">
+          <div class="service-opt" onclick="this.closest('.service-options').querySelectorAll('.service-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected')">
+            <strong>🍱 Event Catering</strong><span>Luau, graduation, family gathering</span>
+          </div>
+          <div class="service-opt" onclick="this.closest('.service-options').querySelectorAll('.service-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected')">
+            <strong>📦 Bulk Produce</strong><span>Large quantity produce orders</span>
+          </div>
+          <div class="service-opt" onclick="this.closest('.service-options').querySelectorAll('.service-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected')">
+            <strong>🥗 Party Trays</strong><span>Deli trays, fruit platters, poke bowls</span>
+          </div>
+          <div class="service-opt" onclick="this.closest('.service-options').querySelectorAll('.service-opt').forEach(o=>o.classList.remove('selected'));this.classList.add('selected')">
+            <strong>🏫 Wholesale Account</strong><span>Restaurants, schools, nonprofits</span>
+          </div>
+        </div>
+        <div class="form-nav"><button class="btn btn-primary" onclick="nextStep()">Continue →</button></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" id="step2">
+        <h3>Order Details</h3>
+        <div class="form-group"><label>Requested Date</label><input type="date" min="2026-06-30"></div>
+        <div class="form-group"><label>Pickup or Delivery?</label>
+          <select><option>Pickup at Store</option><option>Delivery on Molokai (+fee)</option></select>
+        </div>
+        <div class="form-group"><label>Number of Guests / Quantity</label><input type="text" placeholder="e.g. 50 guests, or 100 lbs sweet potatoes"></div>
+        <div class="form-group"><label>Special Requests / Menu Notes</label><textarea rows="4" placeholder="Dietary needs, specific items, allergies..."></textarea></div>
+        <div class="form-nav">
+          <button class="btn btn-outline" onclick="prevStep()">← Back</button>
+          <button class="btn btn-primary" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step" id="step3">
+        <h3>Your Contact Info</h3>
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(808) 555-0000"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Best Time to Call</label>
+          <select><option>Morning (7AM–12PM)</option><option>Afternoon (12PM–5PM)</option><option>Evening (5PM–8PM)</option></select>
+        </div>
+        <div class="form-nav">
+          <button class="btn btn-outline" onclick="prevStep()">← Back</button>
+          <button class="btn btn-accent" onclick="submitBooking()">Submit Order Request</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Confirmation -->
+      <div class="form-step" id="step4">
+        <div class="confirmation-box">
+          <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" fill="rgba(30,132,73,0.12)" stroke="#1E8449" stroke-width="2"/><path d="M20 32l8 8 16-16" stroke="#1E8449" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.8rem;margin-bottom:12px">Order Request Received!</h3>
+          <p style="color:var(--text-muted);margin-bottom:24px">Mahalo! We'll call you within 24 hours to confirm your order and discuss details. For urgent requests, call us directly at (808) 555-0116.</p>
+          <a href="index.html" class="btn btn-primary">Return Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col"><h4>Aloha Corner Market</h4><p>Your neighborhood island store in Kaunakakai since 1998.</p></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="services.html">Products</a><a href="faq.html">FAQ</a><a href="reviews.html">Reviews</a></div>
+    <div class="footer-col"><h4>Contact</h4><p>Ala Malama Ave, Kaunakakai, HI 96748<br>(808) 555-0116</p></div>
+    <div class="footer-col"><h4>Hours</h4><p>Mon–Thu: 7AM–8PM<br>Fri–Sat: 7AM–9PM<br>Sun: 8AM–6PM</p></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Aloha Corner Market.</span><span>Powered by <a href="https://designholistically.com" target="_blank">Design Holistically</a></span></div>
+</footer>
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

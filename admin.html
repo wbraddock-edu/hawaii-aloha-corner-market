@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Aloha Corner Market</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+body { overflow-x: hidden; }
+.admin-header { height: var(--header-h); background: var(--bg-card); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 24px; gap: 16px; position: sticky; top: 0; z-index: 100; }
+.admin-header h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.2rem; margin-left: 8px; }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+</style>
+</head>
+<body>
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-box">
+    <svg width="48" height="48" viewBox="0 0 42 42" fill="none" style="margin:0 auto 16px"><circle cx="21" cy="21" r="20" fill="#1E8449"/><path d="M21 10 L28 18 L24 18 L24 30 L18 30 L18 18 L14 18 Z" fill="#F39C12"/></svg>
+    <h2>Admin Access</h2>
+    <p>Aloha Corner Market Dashboard</p>
+    <form id="loginForm">
+      <div class="form-group"><input type="password" id="adminPw" placeholder="Enter password" required></div>
+      <div id="loginError" style="color:#c0392b;font-size:0.85rem;margin-bottom:12px"></div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Sign In</button>
+    </form>
+    <p style="margin-top:16px;font-size:0.82rem;color:var(--text-light)">Demo password: admin123</p>
+  </div>
+</div>
+
+<div class="admin-layout">
+  <aside class="admin-sidebar">
+    <div style="padding:20px 20px 0;margin-bottom:16px">
+      <a href="index.html" class="logo-wrap" style="font-size:0.9rem">
+        <svg width="32" height="32" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="20" fill="#1E8449"/><path d="M21 10 L28 18 L24 18 L24 30 L18 30 L18 18 L14 18 Z" fill="#F39C12"/></svg>
+        <span style="font-size:0.85rem">Aloha Corner Market</span>
+      </a>
+    </div>
+    <nav class="admin-nav">
+      <a href="#dashboard" class="active">📊 Dashboard</a>
+      <a href="#orders">📦 Orders</a>
+      <a href="#messages">💬 Messages</a>
+      <a href="#specials">🏷️ Specials</a>
+      <a href="#inventory">🥬 Inventory</a>
+      <a href="index.html">← View Site</a>
+    </nav>
+    <div style="padding:20px;margin-top:auto">
+      <button class="btn-dark-toggle" id="darkToggle" aria-label="Toggle dark mode" style="width:100%;border-radius:var(--radius)">
+        <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:var(--text)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div style="margin-bottom:28px"><h2 style="font-family:'Nunito',sans-serif;font-weight:900;font-size:1.6rem">Good morning, Malia 🌺</h2><p style="color:var(--text-muted)">Monday, June 29, 2026 — Store opens in 2 hours</p></div>
+
+    <div class="admin-grid">
+      <div class="stat-card"><div class="val">12</div><div class="label">Pending Orders</div></div>
+      <div class="stat-card"><div class="val">$4,280</div><div class="label">This Week Revenue</div></div>
+      <div class="stat-card"><div class="val">186</div><div class="label">Total Reviews</div></div>
+      <div class="stat-card"><div class="val">4.9★</div><div class="label">Avg Rating</div></div>
+      <div class="stat-card"><div class="val">3</div><div class="label">New Messages</div></div>
+      <div class="stat-card"><div class="val">8</div><div class="label">Items Low Stock</div></div>
+    </div>
+
+    <div id="orders" style="margin-bottom:40px">
+      <h3 style="font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:16px">Recent Orders</h3>
+      <div style="overflow-x:auto">
+        <table class="admin-table">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>Type</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>#ORD-1041</td><td>Leilani Kahale</td><td>Event Catering</td><td>Jul 4, 2026</td><td>$840</td><td><span class="badge badge-yellow">Pending</span></td></tr>
+            <tr><td>#ORD-1040</td><td>Kaunakakai School</td><td>Bulk Produce</td><td>Jun 30, 2026</td><td>$320</td><td><span class="badge badge-green">Confirmed</span></td></tr>
+            <tr><td>#ORD-1039</td><td>Noa Makoa</td><td>Party Trays</td><td>Jun 29, 2026</td><td>$185</td><td><span class="badge badge-green">Ready</span></td></tr>
+            <tr><td>#ORD-1038</td><td>Sunset Café Molokai</td><td>Wholesale</td><td>Jun 28, 2026</td><td>$960</td><td><span class="badge badge-green">Delivered</span></td></tr>
+            <tr><td>#ORD-1037</td><td>Puanani Family</td><td>Event Catering</td><td>Jun 27, 2026</td><td>$640</td><td><span class="badge badge-green">Complete</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="messages" style="margin-bottom:40px">
+      <h3 style="font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:16px">Recent Messages</h3>
+      <div style="overflow-x:auto">
+        <table class="admin-table">
+          <thead><tr><th>From</th><th>Subject</th><th>Received</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Kawika Pali</td><td>Wholesale inquiry — monthly produce order</td><td>Today 6:42 AM</td><td><span class="badge badge-red">Unread</span></td></tr>
+            <tr><td>Maria Santos</td><td>Question about catering for 120 guests</td><td>Yesterday</td><td><span class="badge badge-red">Unread</span></td></tr>
+            <tr><td>Molokai Community Center</td><td>Annual harvest festival food donation inquiry</td><td>Jun 27</td><td><span class="badge badge-red">Unread</span></td></tr>
+            <tr><td>James Freitas</td><td>Fresh fish order for weekend</td><td>Jun 26</td><td><span class="badge badge-green">Replied</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="specials">
+      <h3 style="font-family:'Nunito',sans-serif;font-weight:800;margin-bottom:16px">This Week's Specials</h3>
+      <table class="admin-table">
+        <thead><tr><th>Item</th><th>Regular Price</th><th>Special Price</th><th>Stock</th><th>Expires</th></tr></thead>
+        <tbody>
+          <tr><td>Molokai Sweet Potatoes</td><td>$1.99/lb</td><td>$1.49/lb</td><td>280 lbs</td><td>Jul 5</td></tr>
+          <tr><td>Fresh Taro Root</td><td>$2.99/lb</td><td>$2.29/lb</td><td>95 lbs</td><td>Jul 5</td></tr>
+          <tr><td>Ripe Papaya</td><td>$1.49 ea</td><td>$0.99 ea</td><td>42 units</td><td>Jul 3</td></tr>
+          <tr><td>Molokai Wildflower Honey</td><td>$11.99</td><td>$8.99</td><td>18 jars</td><td>Jul 5</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+
+  <!-- Powered by Design Holistically -->
+  <footer style="background:#111;color:#aaa;text-align:center;padding:1.5rem;font-size:0.85rem;font-family:sans-serif;">
+    <p>&copy; 2024. Powered by <a href="https://designholistically.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Design Holistically</a>. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
